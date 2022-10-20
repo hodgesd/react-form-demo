@@ -1,14 +1,19 @@
 import PropTypes from "prop-types";
 
-export default function Input({ label }) {
+export default function Input({ label, type }) {
   return (
     <div className="mt-4 flex flex-col">
       <label htmlFor={label}>{label}</label>
-      <input type={label} id={label} placeholder={label} />
+      <input type={type} id={label} placeholder={label} />
     </div>
   );
 }
 
 Input.propTypes = {
   label: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(["email", "password"]),
+};
+
+Input.defaultProps = {
+  type: "text",
 };
