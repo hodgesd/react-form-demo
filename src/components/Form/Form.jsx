@@ -1,14 +1,38 @@
 import PropTypes from "prop-types";
-import Input from "./Input";
 
 export default function Form({ fields }) {
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log('email:', email);
+    console.log('password:', password);
+  }
+
   return (
     <form>
-      {fields.map((field) => (
-        <Input key={field.label} label={field.label} type={field.type} />
-      ))}
+      <div>
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="email">Email</label>
+        <input
+          id="password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
 
-      {/* TODO: Add a submit button! */}
+
+      <button type="submit">Submit</button>
     </form>
   );
 }
