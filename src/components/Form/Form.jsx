@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-
 export default function Form({ fields }) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -30,7 +29,6 @@ export default function Form({ fields }) {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-
 
       <button type="submit">Submit</button>
     </form>
